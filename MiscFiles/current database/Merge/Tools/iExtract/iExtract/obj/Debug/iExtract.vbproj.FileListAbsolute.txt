@@ -1,0 +1,13 @@
+C:\Users\JM\projects\iExtract\iExtract\bin\Debug\iExtract.exe.config
+C:\Users\JM\projects\iExtract\iExtract\bin\Debug\iExtract.exe
+C:\Users\JM\projects\iExtract\iExtract\bin\Debug\iExtract.pdb
+C:\Users\JM\projects\iExtract\iExtract\bin\Debug\iExtract.xml
+C:\Users\JM\projects\iExtract\iExtract\obj\Debug\iExtract.vbprojAssemblyReference.cache
+C:\Users\JM\projects\iExtract\iExtract\obj\Debug\Interop.DAO.dll
+C:\Users\JM\projects\iExtract\iExtract\obj\Debug\iExtract.vbproj.ResolveComReference.cache
+C:\Users\JM\projects\iExtract\iExtract\obj\Debug\iExtract.Resources.resources
+C:\Users\JM\projects\iExtract\iExtract\obj\Debug\iExtract.vbproj.GenerateResource.cache
+C:\Users\JM\projects\iExtract\iExtract\obj\Debug\iExtract.vbproj.CoreCompileInputs.cache
+C:\Users\JM\projects\iExtract\iExtract\obj\Debug\iExtract.exe
+C:\Users\JM\projects\iExtract\iExtract\obj\Debug\iExtract.xml
+C:\Users\JM\projects\iExtract\iExtract\obj\Debug\iExtract.pdb

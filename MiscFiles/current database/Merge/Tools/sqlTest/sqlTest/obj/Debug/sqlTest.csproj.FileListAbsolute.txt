@@ -1,0 +1,13 @@
+C:\Users\JM\Desktop\stuff\sqlTest\sqlTest\bin\Debug\sqlTest.exe.config
+C:\Users\JM\Desktop\stuff\sqlTest\sqlTest\bin\Debug\sqlTest.exe
+C:\Users\JM\Desktop\stuff\sqlTest\sqlTest\bin\Debug\sqlTest.pdb
+C:\Users\JM\Desktop\stuff\sqlTest\sqlTest\obj\Debug\sqlTest.csprojAssemblyReference.cache
+C:\Users\JM\Desktop\stuff\sqlTest\sqlTest\obj\Debug\sqlTest.csproj.CoreCompileInputs.cache
+C:\Users\JM\Desktop\stuff\sqlTest\sqlTest\obj\Debug\sqlTest.exe
+C:\Users\JM\Desktop\stuff\sqlTest\sqlTest\obj\Debug\sqlTest.pdb
+C:\Users\JM\Desktop\stuff\sqlTest\sqlTest\bin\Debug\MySql.Data.dll
+C:\Users\JM\Desktop\stuff\sqlTest\sqlTest\bin\Debug\Google.Protobuf.dll
+C:\Users\JM\Desktop\stuff\sqlTest\sqlTest\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\JM\Desktop\stuff\sqlTest\sqlTest\bin\Debug\Renci.SshNet.dll
+C:\Users\JM\Desktop\stuff\sqlTest\sqlTest\bin\Debug\MySql.Data.xml
+C:\Users\JM\Desktop\stuff\sqlTest\sqlTest\obj\Debug\sqlTest.csproj.CopyComplete

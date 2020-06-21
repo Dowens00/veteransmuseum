@@ -26,6 +26,8 @@ cd C:\"Program Files <x86>"\"MariaDB 10.4"\bin
 REM dump contents of SQL instance into flat file appended with datetime
 mysqldump --user=adminapp --password=%Password% --databases veteransmuseum > %BackupFilePath%\dailybackup_%datetime%.sql
 
+REM mirror the contents of the image files into the backup directory
+robocopy/mir C:\MuseumApp\images %BackupFilePath%\images
 
 REM References used to creat script
 REM https://mariadb.com/kb/en/mysqldump/#mysqldump-in-mariadb-103-and-higher

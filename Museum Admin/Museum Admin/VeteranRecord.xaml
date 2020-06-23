@@ -7,7 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="1050" d:DesignWidth="1700" Background="White">
     <Grid>
-        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="423*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
@@ -16,8 +20,9 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Button x:Name="Btn_SaveRecord" Content="Save Record" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Width="120" Click="Btn_SaveRecord_Click"/>
-            <Button x:Name="Btn_DeleteRecord" Content="Delete Record" HorizontalAlignment="Left" Margin="235,10,0,0" VerticalAlignment="Top" Width="120" Click="Btn_DeleteRecord_Click"/>
+            <Button x:Name="Btn_NewRecord" Content="New Record" HorizontalAlignment="Left" Margin="15,10,10,0" VerticalAlignment="Top" Width="120" Click="Btn_NewRecord_Click"/>
+            <Button x:Name="Btn_SaveRecord" Content="Save Record" Margin="150,10,580,0" VerticalAlignment="Top" Width="120" Click="Btn_SaveRecord_Click"/>
+            <Button x:Name="Btn_DeleteRecord" Content="Delete Record" HorizontalAlignment="Left" Margin="315,10,0,0" VerticalAlignment="Top" Width="120" Click="Btn_DeleteRecord_Click"/>
             <Label Content="Last Name" HorizontalAlignment="Left" Margin="15,40,0,0" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
             <TextBox HorizontalAlignment="Left" Height="25" Margin="15,70,0,0" TextWrapping="Wrap" Text="{Binding Path=Veteran.LastName, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="200"  Grid.Column="0" Grid.Row="0"/>
             <Label Content="First Name" HorizontalAlignment="Left" Margin="235,40,0,0" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
@@ -46,6 +51,7 @@
             <Button x:Name="Btn_EditAward" Content="Edit Award" HorizontalAlignment="Left" Margin="635,400,0,0" VerticalAlignment="Top" Width="120" Click="Btn_EditAward_Click"/>
             <Button x:Name="Btn_DeleteAward" Content="Delete Award" HorizontalAlignment="Left" Margin="635,440,0,0" VerticalAlignment="Top" Width="120" Click="Btn_DeleteAward_Click"/>
             <Label Content="Comments" HorizontalAlignment="Left" Margin="15,500,0,0" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
+            <Button x:Name="Btn_AdditionalInfo" Content="Additional Info" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="635,530,0,0" Width="120" Click="Btn_AdditionalInfo_Click"/>
             <TextBox HorizontalAlignment="Left" Height="150" Margin="20,530,0,0" TextWrapping="Wrap" Text="{Binding Path=Veteran.VetComments, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="600"  Grid.Column="0" Grid.Row="0" VerticalScrollBarVisibility="Auto"/>
             <Label Content="Cemetery" HorizontalAlignment="Left" Margin="20,700,0,0" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
             <ComboBox HorizontalAlignment="Left" Margin="150,700,0,0" VerticalAlignment="Top" Width="250" ItemsSource="{Binding CemList}" SelectedItem="{Binding Path=Veteran.CemDetails}" IsSynchronizedWithCurrentItem="True"/>

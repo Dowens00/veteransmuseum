@@ -4,6 +4,8 @@ using MySql.Data.MySqlClient;
 using System.Configuration;
 using System.Windows;
 using System.IO;
+using Renci.SshNet.Messages;
+using System.Text.RegularExpressions;
 
 namespace Museum_Admin
 {
@@ -22,7 +24,7 @@ namespace Museum_Admin
         private string middleName;
         private string lastName;
         private string suffix;
-        private DateTime dob;
+        private string dob;
         private DateTime dod;
         private string cemName;
         private string cemCity;
@@ -42,6 +44,20 @@ namespace Museum_Admin
         private string oldCasualPic;
         private bool hasMiscPicChanged = false;
         private string oldMiscPic;
+        private string addInfo1PicLoc;
+        private string addInfo2PicLoc;
+        private string addInfo3PicLoc;
+        private string addInfo4PicLoc;
+        private bool hasAddInfo1PicChanged;
+        private bool hasAddInfo2PicChanged;
+        private bool hasAddInfo3PicChanged;
+        private bool hasAddInfo4PicChanged;
+        private string oldAddInfo1Pic;
+        private string oldAddInfo2Pic;
+        private string oldAddInfo3Pic;
+        private string oldAddInfo4Pic;
+
+
 
         public List<VetServiceDBInfo> ServiceDetails;
         public List<VetAwardDBInfo> AwardDetails;
@@ -142,7 +158,7 @@ namespace Museum_Admin
             get
             {
                 string returnString;
-                returnString = dob.ToShortDateString();
+                returnString = dob;
 
                 // This is checking for a null value
                 if (returnString == "1/1/0001")
@@ -156,7 +172,17 @@ namespace Museum_Admin
             {
                 if (value != "")
                 {
-                    hasDobChanged = DateTime.TryParse(value, out dob);
+                    dob = value;
+                    if (dob.Length < 15) //REGEX
+                    {
+                        dob = value;
+                        hasDobChanged = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Incorrect Format" + dob);
+                        dob = null;                        
+                    }
                     Tools.hasDataChanged = true;
                 }
             }
@@ -347,7 +373,8 @@ namespace Museum_Admin
                 InsertDataIntoDatabase();
             }
 
-            bool hasAnyPicChanged = hasMarkerPicChanged || hasMilPicChanged || hasCasualPicChanged || hasMiscPicChanged;
+            bool hasAnyPicChanged = hasMarkerPicChanged || hasMilPicChanged || hasCasualPicChanged || hasMiscPicChanged
+                || hasAddInfo1PicChanged || hasAddInfo2PicChanged || hasAddInfo3PicChanged || hasAddInfo4PicChanged;
 
             if (hasAnyPicChanged)
             {
@@ -357,6 +384,10 @@ namespace Museum_Admin
                 hasMilPicChanged = false;
                 hasCasualPicChanged = false;
                 hasMiscPicChanged = false;
+                hasAddInfo1PicChanged = false;
+                hasAddInfo2PicChanged = false;
+                hasAddInfo3PicChanged = false;
+                hasAddInfo4PicChanged = false;
             }
 
             // Existing record or new record with pictures that needed ID to process then update - Update database
@@ -439,6 +470,42 @@ namespace Museum_Admin
                 folder += ConfigurationManager.AppSettings["MiscPicDirectory"];
 
                 miscPicLoc = UpdateImage(folder, oldMiscPic, miscPicLoc);
+            }
+
+            if (hasAddInfo1PicChanged)
+            {
+                string folder;
+                folder = ConfigurationManager.AppSettings["InstallDirectory"];
+                folder += ConfigurationManager.AppSettings["AddInfoDirectory"];
+
+                addInfo1PicLoc = UpdateImage(folder, oldAddInfo1Pic, addInfo1PicLoc);
+            }
+
+            if (hasAddInfo2PicChanged)
+            {
+                string folder;
+                folder = ConfigurationManager.AppSettings["InstallDirectory"];
+                folder += ConfigurationManager.AppSettings["AddInfoDirectory"];
+
+                addInfo2PicLoc = UpdateImage(folder, oldAddInfo2Pic, addInfo2PicLoc);
+            }
+
+            if (hasAddInfo3PicChanged)
+            {
+                string folder;
+                folder = ConfigurationManager.AppSettings["InstallDirectory"];
+                folder += ConfigurationManager.AppSettings["AddInfoDirectory"];
+
+                addInfo3PicLoc = UpdateImage(folder, oldAddInfo3Pic, addInfo3PicLoc);
+            }
+
+            if (hasAddInfo4PicChanged)
+            {
+                string folder;
+                folder = ConfigurationManager.AppSettings["InstallDirectory"];
+                folder += ConfigurationManager.AppSettings["AddInfoDirectory"];
+
+                addInfo4PicLoc = UpdateImage(folder, oldAddInfo4Pic, addInfo4PicLoc);
             }
         }
 
@@ -647,7 +714,9 @@ namespace Museum_Admin
                         command.CommandText = @"UPDATE Veterans SET FName = @firstName, MName = @middleName, LName = @lastName, " +
                         "Suffix = @suffix, DOB = @dob, DOD = @dod, CName = @cemName, CCity = @cemCity, CSection = @cemSection, " +
                         "CRow = @cemRow, MarkerLocation = @markerLoc, MarkerPicLoc = @markerPicLoc, MilPicLoc = @milPicLoc, " +
-                        "CasualPicLoc = @casualPicLoc, MiscPicLoc = @miscPicLoc, Comments = @comments WHERE id = @idNum;";
+                        "CasualPicLoc = @casualPicLoc, MiscPicLoc = @miscPicLoc, addInfo1PicLoc = @addInfo1PicLoc, " +
+                        "addInfo2PicLoc = @addInfo2PicLoc, addInfo3PicLoc = @addInfo3PicLoc, addInfo4PicLoc = @addInfo4PicLoc, " +
+                        "Comments = @comments WHERE id = @idNum;";
 
                         if (!string.IsNullOrEmpty(firstName))
                         {
@@ -687,7 +756,7 @@ namespace Museum_Admin
 
                         if (hasDobChanged)
                         {
-                            command.Parameters.Add("@dob", MySqlDbType.Date).Value = dob.ToString("yyyy-MM-dd");
+                            command.Parameters.Add("@dob", MySqlDbType.VarChar).Value = dob;
                         }
                         else
                         {
@@ -784,6 +853,42 @@ namespace Museum_Admin
                             command.Parameters.Add("@miscPicLoc", MySqlDbType.VarChar).Value = DBNull.Value;
                         }
 
+                        if (!string.IsNullOrEmpty(addInfo1PicLoc))
+                        {
+                            command.Parameters.Add("addInfo1PicLoc", MySqlDbType.VarChar).Value = addInfo1PicLoc;
+                        }
+                        else
+                        {
+                            command.Parameters.Add("addInfo1PicLoc", MySqlDbType.VarChar).Value = DBNull.Value;
+                        }
+
+                        if (!string.IsNullOrEmpty(addInfo2PicLoc))
+                        {
+                            command.Parameters.Add("addInfo2PicLoc", MySqlDbType.VarChar).Value = addInfo2PicLoc;
+                        }
+                        else
+                        {
+                            command.Parameters.Add("addInfo2PicLoc", MySqlDbType.VarChar).Value = DBNull.Value;
+                        }
+
+                        if (!string.IsNullOrEmpty(addInfo3PicLoc))
+                        {
+                            command.Parameters.Add("addInfo3PicLoc", MySqlDbType.VarChar).Value = addInfo3PicLoc;
+                        }
+                        else
+                        {
+                            command.Parameters.Add("addInfo3PicLoc", MySqlDbType.VarChar).Value = DBNull.Value;
+                        }
+
+                        if (!string.IsNullOrEmpty(addInfo4PicLoc))
+                        {
+                            command.Parameters.Add("addInfo4PicLoc", MySqlDbType.VarChar).Value = addInfo4PicLoc;
+                        }
+                        else
+                        {
+                            command.Parameters.Add("addInfo4PicLoc", MySqlDbType.VarChar).Value = DBNull.Value;
+                        }
+
                         if (!string.IsNullOrEmpty(vetComments))
                         {
                             command.Parameters.Add("@comments", MySqlDbType.VarChar, 750).Value = vetComments;
@@ -797,10 +902,13 @@ namespace Museum_Admin
 
                         int rowCount = command.ExecuteNonQuery();
 
+
                         if (rowCount == 1)
                         {
                             // User has now written the data to the database
                             Tools.hasDataChanged = false;
+                            //Save Message Nick
+                            MessageBox.Show("Save Successful");
                         }
                         // We should always only edit one record
                         else
@@ -871,7 +979,7 @@ namespace Museum_Admin
                         {
                             command.CommandText += "DOB, ";
                             values += "@dob,";
-                            command.Parameters.Add("@dob", MySqlDbType.Date).Value = dob.ToString("yyyy-MM-dd");
+                            command.Parameters.Add("@dob", MySqlDbType.VarChar).Value = dob;
                         }
 
                         if (hasDodChanged)
@@ -939,6 +1047,8 @@ namespace Museum_Admin
                         {
                             // User has now written the data to the database
                             Tools.hasDataChanged = false;
+                            //Nick Edit
+                            MessageBox.Show("Save Successful");
                         }
                         // We should always only create one record
                         else
@@ -995,7 +1105,8 @@ namespace Museum_Admin
                     using (MySqlCommand command = conn.CreateCommand())
                     {
                         command.CommandText = "SELECT FName,MName,LName,Suffix,DOB,DOD,CName,CCity,CSection,CRow,MarkerLocation," +
-                            "MarkerPicLoc,MilPicLoc,CasualPicLoc,MiscPicLoc,Comments FROM Veterans WHERE ID=@idNum;";
+                            "MarkerPicLoc,MilPicLoc,CasualPicLoc,MiscPicLoc,Comments, addInfo1PicLoc, addInfo2PicLoc, addInfo3PicLoc, addInfo4PicLoc" +
+                            " FROM Veterans WHERE ID=@idNum;";
                         command.Parameters.Add("@idNum", MySqlDbType.Int32).Value = id;
 
                         using (MySqlDataReader reader = command.ExecuteReader())
@@ -1024,7 +1135,7 @@ namespace Museum_Admin
 
                                 if (!reader.IsDBNull(4))
                                 {
-                                    dob = reader.GetDateTime(4);
+                                    dob = reader.GetDateTime(4).ToString();
                                 }
 
                                 if (!reader.IsDBNull(5))
@@ -1081,6 +1192,26 @@ namespace Museum_Admin
                                 {
                                     vetComments = reader.GetString(15);
                                 }
+
+                                if (!reader.IsDBNull(16))
+                                {
+                                    addInfo1PicLoc = reader.GetString(16);
+                                }
+
+                                if (!reader.IsDBNull(17))
+                                {
+                                    addInfo2PicLoc = reader.GetString(17);
+                                }
+
+                                if (!reader.IsDBNull(18))
+                                {
+                                    addInfo3PicLoc = reader.GetString(18);
+                                }
+
+                                if (!reader.IsDBNull(19))
+                                {
+                                    addInfo4PicLoc = reader.GetString(19);
+                                }
                             }
                         }
                     }
@@ -1121,6 +1252,7 @@ namespace Museum_Admin
                         {
                             // User has now written the data to the database
                             Tools.hasDataChanged = false;
+                            MessageBox.Show("Delete Successful");
                         }
                         // We should always only delete one record
                         else

@@ -7,6 +7,7 @@ using System.Windows.Media.Imaging;
 using System.Configuration;
 using System.IO;
 using Microsoft.Win32;
+using MySql.Data.MySqlClient;
 
 namespace Museum_Admin
 {
@@ -267,10 +268,21 @@ namespace Museum_Admin
             }
         }
 
+        private void Btn_NewRecord_Click(object sender, RoutedEventArgs e)
+        {
+            //Nick New Record
+            VeteranRecord vetWin;
+            vetWin = new VeteranRecord(mainWin);
+            mainWin.DataContext = null;
+            mainWin.MainWindowContent = vetWin;
+            mainWin.DataContext = mainWin;
+        }
+
         private void Btn_SaveRecord_Click(object sender, RoutedEventArgs e)
         {
             Veteran.WriteDataToDatabase();
         }
+
 
         private void Btn_DeleteRecord_Click(object sender, RoutedEventArgs e)
         {
@@ -539,8 +551,7 @@ namespace Museum_Admin
 
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.Filter = "All Images Files (*.png;*.jpeg;*.gif;*.jpg;*.bmp;*.tiff;*.tif)" +
-                "|*.png;*.jpeg;*.gif;*.jpg;*.bmp;*.tiff;*.tif" +
-                "|All files (*.*)|*.*";
+                "|*.png;*.jpeg;*.gif;*.jpg;*.bmp;*.tiff;*.tif";
 
             result = dlg.ShowDialog();
 
@@ -639,6 +650,11 @@ namespace Museum_Admin
         {
             Img_MiscPhoto.Source = null;
             Veteran.MiscPicLoc = "";
+        }
+
+        private void Btn_AdditionalInfo_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

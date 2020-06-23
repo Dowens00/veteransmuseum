@@ -444,5 +444,10 @@ namespace Musuem_Viewer
             UserComments commentWin = new UserComments(currentId);
             commentWin.ShowDialog();
         }
+
+        private void Btn_AdditionalInfo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

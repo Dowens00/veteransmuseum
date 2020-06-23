@@ -74,10 +74,6 @@
                 <Button x:Name="Btn_SetImg_AdditionalPhoto4" Content="Set Photo" HorizontalAlignment="Right" Margin="0,0,135,10" VerticalAlignment="Bottom" Width="100" Visibility="Visible" Click="Btn_SetImg_AdditionalPhoto4_Click"/>
                 <Button x:Name="Btn_DeleteImg_AdditionalPhoto4" Content="Delete Photo" HorizontalAlignment="Right" Margin="0,0,20,10" VerticalAlignment="Bottom" Width="100" Visibility="Visible" Click="Btn_DeleteImg_AdditionalPhoto4_Click"/>
             </Grid>
-
-           
-            
         </Grid>
     </Grid>
 </UserControl>
-        

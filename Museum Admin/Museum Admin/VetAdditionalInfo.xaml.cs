@@ -19,10 +19,17 @@ namespace Museum_Admin
     /// </summary>
     public partial class VetAdditionalInfo : UserControl
     {
-        private VeteranRecord vetWin;
+        private VetAdditionalInfo vetAdditionalInfoWin;
         private MainWindow parentWin;
 
-        public VetAdditionalInfo(MainWindow parent)
+
+        // File paths for photos - Used for EnlargedPhoto
+        private string AddInfoPhoto1 = "";
+        private string AddInfoPhoto2 = "";
+        private string AddInfoPhoto3 = "";
+        private string AddInfoPhoto4 = "";
+
+        public VetAdditionalInfo(MainWindow parent, VetServiceDBInfo veteran)
         {
             InitializeComponent();
 

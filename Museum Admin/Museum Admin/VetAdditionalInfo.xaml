@@ -38,9 +38,6 @@
 
             <Grid Grid.Row="0" Grid.Column="2">
                 <!--AddInfoPhoto2-->
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
                 <Label Content="Additional Photo" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="50,0,0,5"  FontWeight="Bold"/>
                 <Image x:Name="Img_AdditionalPhoto2" HorizontalAlignment="Stretch" Margin="10,0,10,50" VerticalAlignment="Stretch" MouseLeftButtonDown="Img_AdditionalPhoto2_MouseLeftButtonDown"/>
                 <Button x:Name="Btn_SetImg_AdditionalPhoto2" Content="Set Photo" HorizontalAlignment="Right" Margin="0,0,135,10" VerticalAlignment="Bottom" Width="100" Visibility="Visible" Click="Btn_SetImg_AdditionalPhoto2_Click"/>
@@ -50,14 +47,10 @@
             <Grid Grid.Row="1" Grid.Column="0">
                 <!--Cemetary info-->
                 <Label Content="Google Maps stuff here" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0" FontWeight="Bold"/>
-
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="1">
                 <!--AddInfoPhoto3-->
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
                 <Label Content="Additional Photo" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="50,0,0,5"  FontWeight="Bold"/>
                 <Image x:Name="Img_AdditionalPhoto3" HorizontalAlignment="Stretch" Margin="10,0,10,50" VerticalAlignment="Stretch" MouseLeftButtonDown="Img_AdditionalPhoto3_MouseLeftButtonDown"/>
                 <Button x:Name="Btn_SetImg_AdditionalPhoto3" Content="Set Photo" HorizontalAlignment="Right" Margin="0,0,135,10" VerticalAlignment="Bottom" Width="100" Visibility="Visible" Click="Btn_SetImg_AdditionalPhoto3_Click"/>
@@ -66,9 +59,6 @@
 
             <Grid Grid.Row="1" Grid.Column="2">
                 <!--AddInfoPhoto4-->
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
                 <Label Content="Additional Photo" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="50,0,0,5"  FontWeight="Bold"/>
                 <Image x:Name="Img_AdditionalPhoto4" HorizontalAlignment="Stretch" Margin="10,0,10,50" VerticalAlignment="Stretch" MouseLeftButtonDown="Img_AdditionalPhoto4_MouseLeftButtonDown"/>
                 <Button x:Name="Btn_SetImg_AdditionalPhoto4" Content="Set Photo" HorizontalAlignment="Right" Margin="0,0,135,10" VerticalAlignment="Bottom" Width="100" Visibility="Visible" Click="Btn_SetImg_AdditionalPhoto4_Click"/>

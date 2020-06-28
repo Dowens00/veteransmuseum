@@ -81,5 +81,32 @@ namespace Musuem_Viewer
         {
             Close();
         }
+
+        //the function for the Google Maps button
+        private void Btn_Googlemaps_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                
+                string URL = "https://www.google.com/maps/place/" + Veteran.CemAddress;
+
+                //call IE specifically, and navigate to String URL
+
+                System.Diagnostics.Process.Start("explorer", URL);
+            }
+
+            catch
+            (
+                System.ComponentModel.Win32Exception noBrowser)
+            {
+                if (noBrowser.ErrorCode == -2147467259)
+                    MessageBox.Show(noBrowser.Message);
+            }
+            catch (System.Exception other)
+            {
+                MessageBox.Show(other.Message);
+            }
+        }
+
     }
 }

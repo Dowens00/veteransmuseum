@@ -23,6 +23,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Button x:Name="Btn_CloseWin" Content="Close" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Width="75" Grid.Column="0" Grid.Row="0" Click="Btn_CloseWin_Click"/>
+            <Button x:Name="Btn_Googlemaps" Content="GoogleMaps" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1" Grid.Row="0" Click="Btn_Googlemaps_Click"/>
             <Label Content="Cemetery Information" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Grid.Row="1" FontWeight="Bold"/>
             <Label x:Name="Lbl_CemeteryName" Content="{Binding Path=Veteran.CemName}" HorizontalAlignment="Center" Margin="0,32,0,0" VerticalAlignment="Top" Grid.Row="1"/>
             <Label x:Name="Lbl_CemeteryAddress" Content="{Binding Path=Veteran.CemAddress}" HorizontalAlignment="Center" Margin="0,58,0,0" VerticalAlignment="Top" Grid.Row="1"/>

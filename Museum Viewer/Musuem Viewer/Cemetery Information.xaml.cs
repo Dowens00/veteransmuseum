@@ -85,14 +85,22 @@ namespace Musuem_Viewer
         //the function for the Google Maps button
         private void Btn_Googlemaps_Click(object sender, RoutedEventArgs e)
         {
+            string URL;
             try
             {
+                if (Veteran.CemAddress.Length > 0)
+                {
+                    URL = "https://www.google.com/maps/place/" + Veteran.CemAddress;
+                    //call IE specifically, and navigate to String URL
+                    System.Diagnostics.Process.Start("explorer", URL);
+                }
+                else 
+                {
+                    URL = "https://www.google.com/maps/place/Athens Veterans Museum";
+                    System.Diagnostics.Process.Start("explorer", URL);
+                }
                 
-                string URL = "https://www.google.com/maps/place/" + Veteran.CemAddress;
-
-                //call IE specifically, and navigate to String URL
-
-                System.Diagnostics.Process.Start("explorer", URL);
+               
             }
 
             catch

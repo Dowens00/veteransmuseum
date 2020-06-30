@@ -1274,5 +1274,6 @@ namespace Museum_Admin
                 Tools.HandleSQLExceptions(e);
             }
         }
+
     }
 }

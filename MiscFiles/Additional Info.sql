@@ -1,3 +1,4 @@
+USE VeteransMuseum;
 ALTER TABLE veterans
 ADD COLUMN Addinfo1PicLoc VARCHAR(250),
 ADD COLUMN Addinfo2PicLoc VARCHAR(250),

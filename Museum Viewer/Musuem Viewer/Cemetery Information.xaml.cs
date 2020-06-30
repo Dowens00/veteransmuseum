@@ -88,7 +88,7 @@ namespace Musuem_Viewer
             string URL;
             try
             {
-                if (Veteran.CemAddress.Length > 0)
+                if (Veteran.CemAddress != null)
                 {
                     URL = "https://www.google.com/maps/place/" + Veteran.CemAddress;
                     //call IE specifically, and navigate to String URL
@@ -96,7 +96,7 @@ namespace Musuem_Viewer
                 }
                 else 
                 {
-                    URL = "https://www.google.com/maps/place/Athens Veterans Museum";
+                    URL = "https://www.google.com/maps/place/Athens+Veterans+Museum";
                     System.Diagnostics.Process.Start("explorer", URL);
                 }
                 

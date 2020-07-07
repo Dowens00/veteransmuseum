@@ -21,6 +21,7 @@ namespace Museum_Admin
     {
         private VetAdditionalInfo vetAdditionalInfoWin;
         private MainWindow parentWin;
+        private VeteranDBInfo Veteran;
 
 
         // File paths for photos - Used for EnlargedPhoto
@@ -29,13 +30,24 @@ namespace Museum_Admin
         private string AddInfoPhoto3 = "";
         private string AddInfoPhoto4 = "";
 
-        public VetAdditionalInfo(MainWindow parent, VetServiceDBInfo veteran)
+        public VetAdditionalInfo(MainWindow parent, VeteranDBInfo record)
         {
             InitializeComponent();
 
             parentWin = parent;
 
             DataContext = this;
+
+            Veteran = record;
+        }
+
+        // Sets dialog settings and loads data. Used if record already exists.
+        public void BuildAndShowDialog()
+        {
+            //LoadAdditionalInfo1Pic();
+            //LoadAdditionalInfo2Pic();
+            //LoadAdditionalInfo3Pic();
+            //LoadAdditionalInfo4Pic();
         }
 
         private void Btn_Close_Click(object sender, RoutedEventArgs e)

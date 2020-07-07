@@ -654,7 +654,8 @@ namespace Museum_Admin
 
         private void Btn_AdditionalInfo_Click(object sender, RoutedEventArgs e)
         {
-
+            VetAdditionalInfo vetAdditionalInfo = new VetAdditionalInfo(mainWin, Veteran);
+            vetAdditionalInfo.BuildAndShowDialog();
         }
     }
 }

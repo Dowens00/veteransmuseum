@@ -26,7 +26,7 @@
             <!--Comments here-->
             <Button x:Name="Btn_Close" Content="Close" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,50,0,0" Width="120" Grid.Column="0" Grid.Row="0" Click="Btn_Close_Click" RenderTransformOrigin="0.608,-0.4"/>
             <Label Content="Comments" HorizontalAlignment="Left" Margin="50,100,0,0" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" FontWeight="Bold" RenderTransformOrigin="0.835,2.323"/>
-            <TextBox HorizontalAlignment="Left" Height="365" Margin="10,150,0,0" TextWrapping="Wrap" Text="{Binding Path=Veteran.VetComments, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="830"  Grid.Column="0" Grid.Row="0" VerticalScrollBarVisibility="Auto"/>
+            <TextBox HorizontalAlignment="Left" Height="342" Margin="10,150,0,0" TextWrapping="Wrap" Text="{Binding Path=Veteran.VetComments, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="830"  Grid.Column="0" Grid.Row="0" VerticalScrollBarVisibility="Auto"/>
 
             <Grid Grid.Row="0" Grid.Column="1">
                 <!--AddInfoPhoto1-->

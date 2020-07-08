@@ -41,6 +41,22 @@ namespace Museum_Admin
             CemList = CemeteryDBInfo.LoadStringList();
         }
 
+        //If veteran already selected 
+        public VeteranRecord(MainWindow main, VeteranDBInfo record)
+        {
+            InitializeComponent();
+
+            mainWin = main;
+
+            DataContext = this;
+
+            Tools.hasDataChanged = false;
+
+            CemList = CemeteryDBInfo.LoadStringList();
+
+            Veteran = record;
+        }
+
         // Sets dialog settings and loads data. Used if record already exists.
         public void BuildAndShowDialog(int recordId)
         {
@@ -270,7 +286,7 @@ namespace Museum_Admin
 
         private void Btn_NewRecord_Click(object sender, RoutedEventArgs e)
         {
-            //Nick New Record
+            //New Record
             VeteranRecord vetWin;
             vetWin = new VeteranRecord(mainWin);
             mainWin.DataContext = null;
@@ -655,7 +671,11 @@ namespace Museum_Admin
         private void Btn_AdditionalInfo_Click(object sender, RoutedEventArgs e)
         {
             VetAdditionalInfo vetAdditionalInfo = new VetAdditionalInfo(mainWin, Veteran);
-            vetAdditionalInfo.BuildAndShowDialog();
+            vetAdditionalInfo.BuildAndShowDialog(Veteran.Id);
+
+            mainWin.DataContext = null;
+            mainWin.MainWindowContent = vetAdditionalInfo;
+            mainWin.DataContext = mainWin;
         }
     }
 }

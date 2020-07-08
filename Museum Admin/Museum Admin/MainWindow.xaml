@@ -23,7 +23,6 @@
             <Button x:Name="NavBtn_Awards" Style="{StaticResource NavButton}" Content="Awards" Click="NavBtn_Awards_Click"/>
             <Button x:Name="NavBtn_Comments" Style="{StaticResource NavButton}" Content="User Comments" Click="NavBtn_Comments_Click"/>
             <Button x:Name="NavBtn_Queries" Style="{StaticResource NavButton}" Content="Queries" Click="NavBtn_Queries_Click"/>
-            <Button x:Name="NavBtn_DBTools" Style="{StaticResource NavButton}" Content="DB Tools" Click="NavBtn_DBTools_Click" Visibility="Hidden"/>
         </StackPanel>
         <Grid Grid.Column="1">
             <ContentControl Content="{Binding MainWindowContent, UpdateSourceTrigger=PropertyChanged}"/>

@@ -25,7 +25,7 @@ namespace Museum_Admin
         private string lastName;
         private string suffix;
         private string dob;
-        private DateTime dod;
+        private string dod;
         private string cemName;
         private string cemCity;
         private string cemSection;
@@ -173,7 +173,7 @@ namespace Museum_Admin
                 if (value != "")
                 {
                     dob = value;
-                    if (dob.Length < 15) //REGEX
+                    if (dob.Length < 11)
                     {
                         dob = value;
                         hasDobChanged = true;
@@ -193,7 +193,7 @@ namespace Museum_Admin
             get
             {
                 string returnString;
-                returnString = dod.ToShortDateString();
+                returnString = dod;
 
                 // This is checking for a null value
                 if (returnString == "1/1/0001")
@@ -207,7 +207,17 @@ namespace Museum_Admin
             {
                 if (value != "")
                 {
-                    hasDodChanged = DateTime.TryParse(value, out dod);
+                    dod = value;
+                    if (dod.Length < 11)
+                    {
+                        dod = value;
+                        hasDodChanged = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Incorrect Format" + dod);
+                        dob = null;
+                    }
                     Tools.hasDataChanged = true;
                 }
             }
@@ -335,6 +345,63 @@ namespace Museum_Admin
             set
             {
                 vetComments = value;
+                Tools.hasDataChanged = true;
+            }
+        }
+
+        public string AddInfo1PicLoc
+        {
+            get
+            {
+                return addInfo1PicLoc;
+            }
+            set
+            {
+                oldAddInfo1Pic = addInfo1PicLoc;
+                addInfo1PicLoc = value;
+                hasAddInfo1PicChanged = true;
+                Tools.hasDataChanged = true;
+            }
+        }
+        public string AddInfo2PicLoc
+        {
+            get
+            {
+                return addInfo2PicLoc;
+            }
+            set
+            {
+                oldAddInfo2Pic = addInfo2PicLoc;
+                addInfo2PicLoc = value;
+                hasAddInfo2PicChanged = true;
+                Tools.hasDataChanged = true;
+            }
+        }
+        public string AddInfo3PicLoc
+        {
+            get
+            {
+                return addInfo3PicLoc;
+            }
+            set
+            {
+                oldAddInfo3Pic = addInfo3PicLoc;
+                addInfo3PicLoc = value;
+                hasAddInfo3PicChanged = true;
+                Tools.hasDataChanged = true;
+            }
+        }
+        public string AddInfo4PicLoc
+        {
+            get
+            {
+                return addInfo4PicLoc;
+            }
+            set
+            {
+                oldAddInfo4Pic = addInfo4PicLoc;
+                addInfo4PicLoc = value;
+                hasAddInfo4PicChanged = true;
                 Tools.hasDataChanged = true;
             }
         }
@@ -765,7 +832,7 @@ namespace Museum_Admin
 
                         if (hasDodChanged)
                         {
-                            command.Parameters.Add("@dod", MySqlDbType.Date).Value = dod.ToString("yyyy-MM-dd");
+                            command.Parameters.Add("@dod", MySqlDbType.VarChar).Value = dod;
                         }
                         else
                         {
@@ -907,7 +974,7 @@ namespace Museum_Admin
                         {
                             // User has now written the data to the database
                             Tools.hasDataChanged = false;
-                            //Save Message Nick
+                            //Visual Feedback Save Message
                             MessageBox.Show("Save Successful");
                         }
                         // We should always only edit one record
@@ -986,7 +1053,7 @@ namespace Museum_Admin
                         {
                             command.CommandText += "DOD, ";
                             values += "@dod,";
-                            command.Parameters.Add("@dod", MySqlDbType.Date).Value = dod.ToString("yyyy-MM-dd");
+                            command.Parameters.Add("@dod", MySqlDbType.VarChar).Value = dod;
                         }
 
                         if (!string.IsNullOrEmpty(cemName))
@@ -1047,7 +1114,7 @@ namespace Museum_Admin
                         {
                             // User has now written the data to the database
                             Tools.hasDataChanged = false;
-                            //Nick Edit
+                            //Visual Confirmation message
                             MessageBox.Show("Save Successful");
                         }
                         // We should always only create one record
@@ -1105,7 +1172,7 @@ namespace Museum_Admin
                     using (MySqlCommand command = conn.CreateCommand())
                     {
                         command.CommandText = "SELECT FName,MName,LName,Suffix,DOB,DOD,CName,CCity,CSection,CRow,MarkerLocation," +
-                            "MarkerPicLoc,MilPicLoc,CasualPicLoc,MiscPicLoc,Comments, addInfo1PicLoc, addInfo2PicLoc, addInfo3PicLoc, addInfo4PicLoc" +
+                            "MarkerPicLoc,MilPicLoc,CasualPicLoc,MiscPicLoc,Comments,AddInfo1,AddInfo2,AddInfo3,AddInfo4" +
                             " FROM Veterans WHERE ID=@idNum;";
                         command.Parameters.Add("@idNum", MySqlDbType.Int32).Value = id;
 
@@ -1135,12 +1202,12 @@ namespace Museum_Admin
 
                                 if (!reader.IsDBNull(4))
                                 {
-                                    dob = reader.GetDateTime(4).ToString();
+                                    dob = reader.GetString(4);
                                 }
 
                                 if (!reader.IsDBNull(5))
                                 {
-                                    dod = reader.GetDateTime(5);
+                                    dod = reader.GetString(5);
                                 }
 
                                 if (!reader.IsDBNull(6))

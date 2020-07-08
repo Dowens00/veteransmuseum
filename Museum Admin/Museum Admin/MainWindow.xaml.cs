@@ -202,25 +202,6 @@ namespace Museum_Admin
             }
         }
 
-        private void NavBtn_DBTools_Click(object sender, RoutedEventArgs e) { }
-
-        //private void NavBtn_DBTools_Click(object sender, RoutedEventArgs e)
-        //{
-        //    MessageBoxResult result = MessageBoxResult.No;
-
-        //    if (Tools.hasDataChanged)
-        //    {
-        //        result = MessageBox.Show(Tools.unsavedMessage, Tools.unsavedTitle, MessageBoxButton.YesNo);
-        //    }
-
-        //    if (!Tools.hasDataChanged || result == MessageBoxResult.Yes)
-        //    {
-        //        DataContext = null;
-        //        MainWindowContent = new DBTools();
-        //        DataContext = this;
-
-        //        // User has changed the page, discarding the changed data
-        //        Tools.hasDataChanged = false;
-        //    }
+ 
     }
 }

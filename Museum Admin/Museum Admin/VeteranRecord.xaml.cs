@@ -42,9 +42,11 @@ namespace Museum_Admin
         }
 
         //If veteran already selected 
-        public VeteranRecord(MainWindow main, VeteranDBInfo record)
+        public VeteranRecord(MainWindow main, VeteranDBInfo record) : this(main)
         {
             InitializeComponent();
+
+            Veteran = record;
 
             mainWin = main;
 

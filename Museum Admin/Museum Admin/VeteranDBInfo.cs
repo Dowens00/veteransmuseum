@@ -1172,7 +1172,7 @@ namespace Museum_Admin
                     using (MySqlCommand command = conn.CreateCommand())
                     {
                         command.CommandText = "SELECT FName,MName,LName,Suffix,DOB,DOD,CName,CCity,CSection,CRow,MarkerLocation," +
-                            "MarkerPicLoc,MilPicLoc,CasualPicLoc,MiscPicLoc,Comments,AddInfo1,AddInfo2,AddInfo3,AddInfo4" +
+                            "MarkerPicLoc,MilPicLoc,CasualPicLoc,MiscPicLoc,Comments,AddInfo1PicLoc,AddInfo2PicLoc,AddInfo3PicLoc,AddInfo4PicLoc" +
                             " FROM Veterans WHERE ID=@idNum;";
                         command.Parameters.Add("@idNum", MySqlDbType.Int32).Value = id;
 

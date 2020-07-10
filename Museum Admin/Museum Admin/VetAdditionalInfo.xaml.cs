@@ -37,11 +37,11 @@ namespace Museum_Admin
         {
             InitializeComponent();
 
+            Veteran = record;
+
             mainWin = main;
 
             DataContext = this;
-
-            Veteran = record;
         }
 
         // Sets dialog settings and loads data.

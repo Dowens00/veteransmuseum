@@ -145,12 +145,34 @@ namespace Museum_Admin
         {
             get
             {
-                return dob;
+                string returnString;
+                returnString = dob;
+
+                // This is checking for a null value
+                if (returnString == "1/1/0001")
+                {
+                    returnString = "";
+                }
+
+                return returnString;
             }
             set
             {
-                dob = value;
-                Tools.hasDataChanged = true;
+                if (value != "")
+                {
+                    dob = value;
+                    if (dob.Length < 15) //REGEX
+                    {
+                        dob = value;
+                        hasDobChanged = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Incorrect Format" + dob);
+                        dob = null;
+                    }
+                    Tools.hasDataChanged = true;
+                }
             }
         }
 
@@ -158,14 +180,34 @@ namespace Museum_Admin
         {
             get
             {
-                return dod;
+                string returnString;
+                returnString = dod;
+
+                // This is checking for a null value
+                if (returnString == "1/1/0001")
+                {
+                    returnString = "";
+                }
+
+                return returnString;
             }
             set
             {
                 dod = value;
+                if (dod.Length < 15) //REGEX
+                {
+                    dod = value;
+                    hasDodChanged = true;
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect Format" + dod);
+                    dod = null;
+                }
                 Tools.hasDataChanged = true;
             }
         }
+
 
         public string CemDetails
         {

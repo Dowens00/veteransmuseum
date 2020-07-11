@@ -40,23 +40,7 @@ namespace Museum_Admin
 
             CemList = CemeteryDBInfo.LoadStringList();
         }
-
-        //If veteran already selected 
-        public VeteranRecord(MainWindow main, VeteranDBInfo record)
-        {
-            InitializeComponent();
-
-            Veteran = record;
-
-            mainWin = main;
-
-            DataContext = this;
-
-            Tools.hasDataChanged = false;
-
-            CemList = CemeteryDBInfo.LoadStringList();
-        }
-
+     
         // Sets dialog settings and loads data. Used if record already exists.
         public void BuildAndShowDialog(int recordId)
         {

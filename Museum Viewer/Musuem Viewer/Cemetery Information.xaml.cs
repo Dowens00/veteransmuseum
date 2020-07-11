@@ -116,5 +116,35 @@ namespace Musuem_Viewer
             }
         }
 
+        //the function for the FindaGrave button
+        private void Btn_FindaGrave_Click(object sender, RoutedEventArgs e)
+        {
+            string URL = Veteran.GraveLink;
+            try
+            {
+                if (Veteran.GraveLink != null)
+                {
+                    System.Diagnostics.Process.Start("explorer", URL);
+                }
+                else
+                {
+                    System.Diagnostics.Process.Start("explorer", "https://www.findagrave.com");
+                }
+
+
+            }
+
+            catch
+            (
+                System.ComponentModel.Win32Exception noBrowser)
+            {
+                if (noBrowser.ErrorCode == -2147467259)
+                    MessageBox.Show(noBrowser.Message);
+            }
+            catch (System.Exception other)
+            {
+                MessageBox.Show(other.Message);
+            }
+        }
     }
 }

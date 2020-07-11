@@ -677,5 +677,10 @@ namespace Museum_Admin
             mainWin.MainWindowContent = vetAdditionalInfo;
             mainWin.DataContext = mainWin;
         }
+
+        private void Btn_EditGraveLink_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

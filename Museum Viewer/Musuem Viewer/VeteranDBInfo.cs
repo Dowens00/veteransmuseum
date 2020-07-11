@@ -19,8 +19,9 @@ namespace Musuem_Viewer
         private string middleName;
         private string lastName;
         private string suffix;
-        private DateTime dob;
-        private DateTime dod;
+        private string dob;
+        private string dod;
+        
         public string CemName { get; set; }
         public string CemAddress { get; set; }
         public string CemGPS { get; set; }
@@ -35,6 +36,8 @@ namespace Musuem_Viewer
         public string CemDirectionsPicLoc { get; set; }
         public string CemAirPicLoc { get; set; }
         public string VetComments { get; set; }
+        public string GraveLink { get; set; }
+
 
         public string CemDetails
         {
@@ -49,7 +52,7 @@ namespace Musuem_Viewer
             get
             {
                 string returnString;
-                returnString = dob.ToShortDateString();
+                returnString = dob;
 
                 // This is checking for a null value
                 if (returnString == "1/1/0001")
@@ -66,7 +69,7 @@ namespace Musuem_Viewer
             get
             {
                 string returnString;
-                returnString = dod.ToShortDateString();
+                returnString = dod;
 
                 // This is checking for a null value
                 if (returnString == "1/1/0001")
@@ -124,7 +127,7 @@ namespace Musuem_Viewer
                     using (MySqlCommand command = conn.CreateCommand())
                     {
                         command.CommandText = "SELECT FName,MName,LName,Suffix,DOB,DOD,Veterans.CName,Veterans.CCity,CSection,CRow," +
-                            "MarkerLocation,MarkerPicLoc,MilPicLoc,CasualPicLoc,MiscPicLoc,Comments,CAddress,GPS,DirectionsPicLoc,CemAirPicLoc " +
+                            "MarkerLocation,MarkerPicLoc,MilPicLoc,CasualPicLoc,MiscPicLoc,Comments,CAddress,GPS,DirectionsPicLoc,CemAirPicLoc,GraveLink " +
                             "FROM Veterans LEFT JOIN Cemeteries ON Veterans.CName = Cemeteries.CName AND Veterans.CCity = Cemeteries.CCity " +
                             "WHERE ID=@idNum;";
                         command.Parameters.Add("@idNum", MySqlDbType.Int32).Value = Id;
@@ -155,12 +158,12 @@ namespace Musuem_Viewer
 
                                 if (!reader.IsDBNull(4))
                                 {
-                                    dob = reader.GetDateTime(4);
+                                    dob = reader.GetString(4);
                                 }
 
                                 if (!reader.IsDBNull(5))
                                 {
-                                    dod = reader.GetDateTime(5);
+                                    dod = reader.GetString(5);
                                 }
 
                                 if (!reader.IsDBNull(6))
@@ -231,6 +234,11 @@ namespace Musuem_Viewer
                                 if (!reader.IsDBNull(19))
                                 {
                                     CemAirPicLoc = reader.GetString(19);
+                                }
+                                
+                                if (!reader.IsDBNull(20))
+                                {
+                                    GraveLink = reader.GetString(20);
                                 }
                             }
                         }

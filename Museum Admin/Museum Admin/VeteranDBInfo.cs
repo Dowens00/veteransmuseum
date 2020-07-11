@@ -56,7 +56,7 @@ namespace Museum_Admin
         private string oldAddInfo2Pic;
         private string oldAddInfo3Pic;
         private string oldAddInfo4Pic;
-
+        private string gravelink;
 
 
         public List<VetServiceDBInfo> ServiceDetails;
@@ -402,6 +402,19 @@ namespace Museum_Admin
                 oldAddInfo4Pic = addInfo4PicLoc;
                 addInfo4PicLoc = value;
                 hasAddInfo4PicChanged = true;
+                Tools.hasDataChanged = true;
+            }
+        }
+
+        public string GraveLink
+        {
+            get
+            {
+                return gravelink;
+            }
+            set
+            {
+                gravelink = value;
                 Tools.hasDataChanged = true;
             }
         }
@@ -783,7 +796,7 @@ namespace Museum_Admin
                         "CRow = @cemRow, MarkerLocation = @markerLoc, MarkerPicLoc = @markerPicLoc, MilPicLoc = @milPicLoc, " +
                         "CasualPicLoc = @casualPicLoc, MiscPicLoc = @miscPicLoc, addInfo1PicLoc = @addInfo1PicLoc, " +
                         "addInfo2PicLoc = @addInfo2PicLoc, addInfo3PicLoc = @addInfo3PicLoc, addInfo4PicLoc = @addInfo4PicLoc, " +
-                        "Comments = @comments WHERE id = @idNum;";
+                        "Comments = @comments, GraveLink=@gravelink WHERE id = @idNum;";
 
                         if (!string.IsNullOrEmpty(firstName))
                         {
@@ -963,6 +976,15 @@ namespace Museum_Admin
                         else
                         {
                             command.Parameters.Add("@comments", MySqlDbType.VarChar, 750).Value = DBNull.Value;
+                        }
+
+                        if (!string.IsNullOrEmpty(gravelink))
+                        {
+                            command.Parameters.Add("@gravelink", MySqlDbType.VarChar).Value = gravelink;
+                        }
+                        else
+                        {
+                            command.Parameters.Add("@gravelink", MySqlDbType.VarChar).Value = DBNull.Value;
                         }
 
                         command.Parameters.Add("@idNum", MySqlDbType.Int32).Value = id;
@@ -1172,7 +1194,7 @@ namespace Museum_Admin
                     using (MySqlCommand command = conn.CreateCommand())
                     {
                         command.CommandText = "SELECT FName,MName,LName,Suffix,DOB,DOD,CName,CCity,CSection,CRow,MarkerLocation," +
-                            "MarkerPicLoc,MilPicLoc,CasualPicLoc,MiscPicLoc,Comments,AddInfo1,AddInfo2,AddInfo3,AddInfo4" +
+                            "MarkerPicLoc,MilPicLoc,CasualPicLoc,MiscPicLoc,Comments,AddInfo1PicLoc,AddInfo2PicLoc,AddInfo3PicLoc,AddInfo4PicLoc" +
                             " FROM Veterans WHERE ID=@idNum;";
                         command.Parameters.Add("@idNum", MySqlDbType.Int32).Value = id;
 

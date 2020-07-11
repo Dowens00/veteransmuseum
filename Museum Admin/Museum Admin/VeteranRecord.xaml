@@ -61,14 +61,13 @@
             <TextBox HorizontalAlignment="Left" Height="25" Margin="150,780,0,0" TextWrapping="Wrap" Text="{Binding Path=Veteran.CemRow, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"  Grid.Column="0" Grid.Row="0"/>
             <Label Content="Marker Location" HorizontalAlignment="Left" Margin="20,820,0,0" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
             <TextBox HorizontalAlignment="Left" Height="25" Margin="150,820,0,0" TextWrapping="Wrap" Text="{Binding Path=Veteran.MarkerLocation, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"  Grid.Column="0" Grid.Row="0"/>
-           
-            <Label Content="FindaGrave Link" HorizontalAlignment="Left" Margin="15,860,0,0" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
-           
+
+            <!--FindaGrave Link controls-->
+            <Label Content="FindaGrave URL" HorizontalAlignment="Left" Margin="20,860,0,0" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" FontWeight="Bold" Width="126"/>
             <TextBox HorizontalAlignment="Left" Height="25" Margin="150,860,0,0" TextWrapping="Wrap" Text="{Binding Path=Veteran.GraveLink, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="460"  Grid.Column="0" Grid.Row="0"/>
-           
-            
-            
-           
+            <Button x:Name="Btn_FindaGrave" Content="Test Link" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="635,860,0,0" Width="120" Click="Btn_FindaGrave_Click"/>
+
+
             <Grid Grid.Column="1" Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>

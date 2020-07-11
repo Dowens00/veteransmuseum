@@ -445,9 +445,5 @@ namespace Musuem_Viewer
             commentWin.ShowDialog();
         }
 
-        private void Btn_AdditionalInfo_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

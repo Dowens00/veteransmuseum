@@ -17,7 +17,6 @@
         </Grid.RowDefinitions>
         <Grid Grid.Column="0" Grid.Row="0">
         <Button x:Name="Btn_SearchAgain" Content="Search Again" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Width="110" Click="Btn_SearchAgain_Click"/>
-            <Button x:Name="Btn_AdditionalInfo" Content="Additional Info" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="160,10,0,0" Width="110" Click="Btn_AdditionalInfo_Click"/>
             <Button x:Name="Btn_AddComments" Content="Submit Corrections / Updates" Width="220" HorizontalAlignment="Right" Margin="0,10,15,0" VerticalAlignment="Top" Click="Btn_AddComments_Click"/>
         <Label x:Name="Lbl_Name" Content="{Binding Path=Veteran.Name, UpdateSourceTrigger=PropertyChanged}" Height="30" HorizontalAlignment="Stretch" Margin="15,40,10,0" VerticalAlignment="Top"/>
         <Label Content="Born" HorizontalAlignment="Left" Margin="15,80,0,0" VerticalAlignment="Top" Height="30" FontWeight="Bold"/>

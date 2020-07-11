@@ -668,19 +668,5 @@ namespace Museum_Admin
             Veteran.MiscPicLoc = "";
         }
 
-        private void Btn_AdditionalInfo_Click(object sender, RoutedEventArgs e)
-        {
-            VetAdditionalInfo vetAdditionalInfo = new VetAdditionalInfo(mainWin, Veteran);
-            vetAdditionalInfo.BuildAndShowDialog(Veteran.Id);
-
-            mainWin.DataContext = null;
-            mainWin.MainWindowContent = vetAdditionalInfo;
-            mainWin.DataContext = mainWin;
-        }
-
-        private void Btn_EditGraveLink_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
     }
 }

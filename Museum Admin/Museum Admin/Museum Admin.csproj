@@ -153,9 +153,6 @@
       <DependentUpon>ServiceDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tools.cs" />
-    <Compile Include="VetAdditionalInfo.xaml.cs">
-      <DependentUpon>VetAdditionalInfo.xaml</DependentUpon>
-    </Compile>
     <Compile Include="VetAwardDBInfo.cs" />
     <Compile Include="VetCommentRecordDBInfo.cs" />
     <Compile Include="VetConflictDBInfo.cs" />
@@ -231,10 +228,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ServiceDetails.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="VetAdditionalInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

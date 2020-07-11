@@ -61,6 +61,7 @@ Addinfo1PicLoc VARCHAR(250),
 Addinfo2PicLoc VARCHAR(250),
 Addinfo3PicLoc VARCHAR(250),
 Addinfo4PicLoc VARCHAR(250),
+GraveLink VARCHAR(250),
 primary key (ID),
 foreign key (CName, CCity) references Cemeteries (CName, CCity) ON UPDATE CASCADE
 );

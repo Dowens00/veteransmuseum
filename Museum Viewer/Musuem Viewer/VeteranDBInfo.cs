@@ -55,7 +55,7 @@ namespace Musuem_Viewer
                 returnString = dob;
 
                 // This is checking for a null value
-                if (returnString == "1/1/0001")
+                if (returnString == "")
                 {
                     returnString = "";
                 }
@@ -72,7 +72,7 @@ namespace Musuem_Viewer
                 returnString = dod;
 
                 // This is checking for a null value
-                if (returnString == "1/1/0001")
+                if (returnString == "")
                 {
                     returnString = "";
                 }

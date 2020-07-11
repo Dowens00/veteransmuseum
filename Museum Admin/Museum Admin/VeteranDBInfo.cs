@@ -145,34 +145,12 @@ namespace Museum_Admin
         {
             get
             {
-                string returnString;
-                returnString = dob;
-
-                // This is checking for a null value
-                if (returnString == "1/1/0001")
-                {
-                    returnString = "";
-                }
-
-                return returnString;
+                return dob;
             }
             set
             {
-                if (value != "")
-                {
-                    dob = value;
-                    if (dob.Length < 11)
-                    {
-                        dob = value;
-                        hasDobChanged = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Incorrect Format" + dob);
-                        dob = null;                        
-                    }
-                    Tools.hasDataChanged = true;
-                }
+                dob = value;
+                Tools.hasDataChanged = true;
             }
         }
 
@@ -180,34 +158,12 @@ namespace Museum_Admin
         {
             get
             {
-                string returnString;
-                returnString = dod;
-
-                // This is checking for a null value
-                if (returnString == "1/1/0001")
-                {
-                    returnString = "";
-                }
-
-                return returnString;
+                return dod;
             }
             set
             {
-                if (value != "")
-                {
-                    dod = value;
-                    if (dod.Length < 11)
-                    {
-                        dod = value;
-                        hasDodChanged = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Incorrect Format" + dod);
-                        dob = null;
-                    }
-                    Tools.hasDataChanged = true;
-                }
+                dod = value;
+                Tools.hasDataChanged = true;
             }
         }
 
@@ -724,22 +680,22 @@ namespace Museum_Admin
                             command.Parameters.Add("@suffix", MySqlDbType.VarChar).Value = DBNull.Value;
                         }
 
-                        if (hasDobChanged)
+                        if (!string.IsNullOrEmpty(dob))
                         {
                             command.Parameters.Add("@dob", MySqlDbType.VarChar).Value = dob;
                         }
                         else
                         {
-                            command.Parameters.Add("@dob", MySqlDbType.Date).Value = DBNull.Value;
+                            command.Parameters.Add("@dob", MySqlDbType.VarChar).Value = DBNull.Value;
                         }
 
-                        if (hasDodChanged)
+                        if (!string.IsNullOrEmpty(dod))
                         {
                             command.Parameters.Add("@dod", MySqlDbType.VarChar).Value = dod;
                         }
                         else
                         {
-                            command.Parameters.Add("@dod", MySqlDbType.Date).Value = DBNull.Value;
+                            command.Parameters.Add("@dod", MySqlDbType.VarChar).Value = DBNull.Value;
                         }
 
                         if (!string.IsNullOrEmpty(cemName))

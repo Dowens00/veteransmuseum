@@ -46,6 +46,8 @@ namespace Museum_Admin
         {
             InitializeComponent();
 
+            Veteran = record;
+
             mainWin = main;
 
             DataContext = this;
@@ -53,8 +55,6 @@ namespace Museum_Admin
             Tools.hasDataChanged = false;
 
             CemList = CemeteryDBInfo.LoadStringList();
-
-            Veteran = record;
         }
 
         // Sets dialog settings and loads data. Used if record already exists.

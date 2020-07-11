@@ -1194,7 +1194,7 @@ namespace Museum_Admin
                     using (MySqlCommand command = conn.CreateCommand())
                     {
                         command.CommandText = "SELECT FName,MName,LName,Suffix,DOB,DOD,CName,CCity,CSection,CRow,MarkerLocation," +
-                            "MarkerPicLoc,MilPicLoc,CasualPicLoc,MiscPicLoc,Comments,AddInfo1PicLoc,AddInfo2PicLoc,AddInfo3PicLoc,AddInfo4PicLoc" +
+                            "MarkerPicLoc,MilPicLoc,CasualPicLoc,MiscPicLoc,Comments,AddInfo1PicLoc,AddInfo2PicLoc,AddInfo3PicLoc,AddInfo4PicLoc,GraveLink" +
                             " FROM Veterans WHERE ID=@idNum;";
                         command.Parameters.Add("@idNum", MySqlDbType.Int32).Value = id;
 
@@ -1300,6 +1300,11 @@ namespace Museum_Admin
                                 if (!reader.IsDBNull(19))
                                 {
                                     addInfo4PicLoc = reader.GetString(19);
+                                }
+
+                                if (!reader.IsDBNull(20))
+                                {
+                                    gravelink = reader.GetString(20);
                                 }
                             }
                         }

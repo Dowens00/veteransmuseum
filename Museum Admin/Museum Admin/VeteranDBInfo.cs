@@ -161,7 +161,7 @@ namespace Museum_Admin
                 if (value != "")
                 {
                     dob = value;
-                    if (dob.Length < 15) //REGEX
+                    if (dob.Length < 11)
                     {
                         dob = value;
                         hasDobChanged = true;
@@ -194,7 +194,7 @@ namespace Museum_Admin
             set
             {
                 dod = value;
-                if (dod.Length < 15) //REGEX
+                if (dod.Length < 11)
                 {
                     dod = value;
                     hasDodChanged = true;

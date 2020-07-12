@@ -445,7 +445,7 @@ namespace Museum_Admin
             {
                 string folder;
                 folder = ConfigurationManager.AppSettings["InstallDirectory"];
-                folder += ConfigurationManager.AppSettings["MarkerPicDirectory"];
+                folder += ConfigurationManager.AppSettings["MiscPicDirectory"];
 
                 markerPicLoc = UpdateImage(folder, oldMarkerPic, markerPicLoc);
             }

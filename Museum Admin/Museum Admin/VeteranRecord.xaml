@@ -9,17 +9,15 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="423*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="1" Margin="2,-10,-10,10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
             <Button x:Name="Btn_NewRecord" Content="New Record" HorizontalAlignment="Left" Margin="15,10,10,0" VerticalAlignment="Top" Width="120" Click="Btn_NewRecord_Click"/>
             <Button x:Name="Btn_SaveRecord" Content="Save Record" Margin="150,10,580,0" VerticalAlignment="Top" Width="120" Click="Btn_SaveRecord_Click"/>
             <Button x:Name="Btn_DeleteRecord" Content="Delete Record" HorizontalAlignment="Left" Margin="315,10,0,0" VerticalAlignment="Top" Width="120" Click="Btn_DeleteRecord_Click"/>
@@ -66,40 +64,40 @@
             <Label Content="FindaGrave URL" HorizontalAlignment="Left" Margin="20,860,0,0" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" FontWeight="Bold" Width="126"/>
             <TextBox HorizontalAlignment="Left" Height="25" Margin="150,860,0,0" TextWrapping="Wrap" Text="{Binding Path=Veteran.GraveLink, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="460"  Grid.Column="0" Grid.Row="0"/>
             <Button x:Name="Btn_FindaGrave" Content="Test Link" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="635,860,0,0" Width="120" Click="Btn_FindaGrave_Click"/>
-
-
-            <Grid Grid.Column="1" Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Label Content="Service Photo" HorizontalAlignment="Left" Margin="75,0,0,5" VerticalAlignment="Bottom" Grid.Row="1" FontWeight="Bold"/>
-                <Image x:Name="Img_ServicePhoto" HorizontalAlignment="Stretch" Margin="10,0,10,50" VerticalAlignment="Stretch" Grid.Row="1" MouseLeftButtonDown="Img_ServicePhoto_MouseLeftButtonDown"/>
-                <Button x:Name="Btn_SetMilPhoto" Content="Set Photo" HorizontalAlignment="Right" Margin="0,0,135,10" VerticalAlignment="Bottom" Width="100" Grid.Row="1" Visibility="Visible" Click="Btn_SetMilPhoto_Click"/>
-                <Button x:Name="Btn_DeleteMilPhoto" Content="Delete Photo" HorizontalAlignment="Right" Margin="0,0,20,10" VerticalAlignment="Bottom" Width="100" Grid.Row="1" Visibility="Visible" Click="Btn_DeleteMilPhoto_Click"/>
-                <Label Content="Casual Photo" HorizontalAlignment="Left" Margin="75,0,0,5" VerticalAlignment="Bottom" Grid.Row="2" FontWeight="Bold"/>
-                <Image x:Name="Img_CasualPhoto" HorizontalAlignment="Stretch" Margin="10,5,10,50" VerticalAlignment="Stretch" Grid.Row="2" MouseLeftButtonDown="Img_CasualPhoto_MouseLeftButtonDown"/>
-                <Button x:Name="Btn_SetCasualPhoto" Content="Set Photo" HorizontalAlignment="Right" Margin="0,0,135,10" VerticalAlignment="Bottom" Width="100" Grid.Row="2" Visibility="Visible" Click="Btn_SetCasualPhoto_Click"/>
-                <Button x:Name="Btn_DeleteCasualPhoto" Content="Delete Photo" HorizontalAlignment="Right" Margin="0,0,20,10" VerticalAlignment="Bottom" Width="100" Grid.Row="2" Visibility="Visible" Click="Btn_DeleteCasualPhoto_Click"/>
-            </Grid>
-            <Grid Grid.Column="2" Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Button x:Name="Btn_Previous" Content="Previous" HorizontalAlignment="Right" Margin="0,10,100,0" VerticalAlignment="Top" Width="75" Grid.Row="0" Visibility="Hidden" Click="Btn_Previous_Click"/>
-                <Button x:Name="Btn_Next" Content="Next" HorizontalAlignment="Right" Margin="0,10,15,0" VerticalAlignment="Top" Width="75" Grid.Row="0" Visibility="Hidden" Click="Btn_Next_Click"/>
-                <Label Content="Marker Photo" HorizontalAlignment="Left" Margin="75,0,0,5" VerticalAlignment="Bottom" Grid.Row="1" FontWeight="Bold"/>
-                <Image x:Name="Img_MarkerPhoto" HorizontalAlignment="Stretch" Margin="10,0,10,50" VerticalAlignment="Stretch" Grid.Row="1" MouseLeftButtonDown="Img_MarkerPhoto_MouseLeftButtonDown"/>
-                <Button x:Name="Btn_SetMarkerPhoto" Content="Set Photo" HorizontalAlignment="Right" Margin="0,0,135,10" VerticalAlignment="Bottom" Width="100" Grid.Row="1" Visibility="Visible" Click="Btn_SetMarkerPhoto_Click"/>
-                <Button x:Name="Btn_DeleteMarkerPhoto" Content="Delete Photo" HorizontalAlignment="Right" Margin="0,0,20,10" VerticalAlignment="Bottom" Width="100" Grid.Row="1" Visibility="Visible" Click="Btn_DeleteMarkerPhoto_Click"/>
-                <Label Content="Misc Photo" HorizontalAlignment="Left" Margin="75,0,0,5" VerticalAlignment="Bottom" Grid.Row="2" FontWeight="Bold"/>
-                <Image x:Name="Img_MiscPhoto" HorizontalAlignment="Stretch" Margin="10,5,10,50" VerticalAlignment="Stretch" Grid.Row="2" MouseLeftButtonDown="Img_MiscPhoto_MouseLeftButtonDown"/>
-                <Button x:Name="Btn_SetMiscPhoto" Content="Set Photo" HorizontalAlignment="Right" Margin="0,0,135,10" VerticalAlignment="Bottom" Width="100" Grid.Row="2" Visibility="Visible" Click="Btn_SetMiscPhoto_Click"/>
-                <Button x:Name="Btn_DeleteMiscPhoto" Content="Delete Photo" HorizontalAlignment="Right" Margin="0,0,20,10" VerticalAlignment="Bottom" Width="100" Grid.Row="2" Visibility="Visible" Click="Btn_DeleteMiscPhoto_Click"/>
-            </Grid>
         </Grid>
+
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Label Content="Service Photo" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="75,0,0,5" FontWeight="Bold"/>
+            <Image x:Name="Img_ServicePhoto" HorizontalAlignment="Stretch" Margin="10,0,10,50" VerticalAlignment="Stretch" MouseLeftButtonDown="Img_ServicePhoto_MouseLeftButtonDown"/>
+            <Button x:Name="Btn_SetMilPhoto" Content="Set Photo" HorizontalAlignment="Right" Margin="0,0,135,10" VerticalAlignment="Bottom" Width="100" Visibility="Visible" Click="Btn_SetMilPhoto_Click"/>
+            <Button x:Name="Btn_DeleteMilPhoto" Content="Delete Photo" HorizontalAlignment="Right" Margin="0,0,20,10" VerticalAlignment="Bottom" Width="100" Visibility="Visible" Click="Btn_DeleteMilPhoto_Click"/>
+        </Grid>
+
+        <Grid Grid.Row="0" Grid.Column="2">
+            <Button x:Name="Btn_Previous" Content="Previous" HorizontalAlignment="Right" Margin="0,10,100,0" VerticalAlignment="Top" Width="75" Grid.Row="0" Visibility="Hidden" Click="Btn_Previous_Click"/>
+            <Button x:Name="Btn_Next" Content="Next" HorizontalAlignment="Right" Margin="0,10,15,0" VerticalAlignment="Top" Width="75" Grid.Row="0" Visibility="Hidden" Click="Btn_Next_Click"/>
+            <Label Content="Casual Photo" HorizontalAlignment="Left" Margin="75,0,0,5" VerticalAlignment="Bottom" FontWeight="Bold"/>
+            <Image x:Name="Img_CasualPhoto" HorizontalAlignment="Stretch" Margin="10,5,10,50" VerticalAlignment="Stretch" MouseLeftButtonDown="Img_CasualPhoto_MouseLeftButtonDown"/>
+            <Button x:Name="Btn_SetCasualPhoto" Content="Set Photo" HorizontalAlignment="Right" Margin="0,0,135,10" VerticalAlignment="Bottom" Width="100" Visibility="Visible" Click="Btn_SetCasualPhoto_Click"/>
+            <Button x:Name="Btn_DeleteCasualPhoto" Content="Delete Photo" HorizontalAlignment="Right" Margin="0,0,20,10" VerticalAlignment="Bottom" Width="100" Visibility="Visible" Click="Btn_DeleteCasualPhoto_Click"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Label Content="Misc Photo" HorizontalAlignment="Left" Margin="75,0,0,5" VerticalAlignment="Bottom" FontWeight="Bold"/>
+            <Image x:Name="Img_MarkerPhoto" HorizontalAlignment="Stretch" Margin="10,0,10,50" VerticalAlignment="Stretch" MouseLeftButtonDown="Img_MarkerPhoto_MouseLeftButtonDown"/>
+            <Button x:Name="Btn_SetMarkerPhoto" Content="Set Photo" HorizontalAlignment="Right" Margin="0,0,135,10" VerticalAlignment="Bottom" Width="100" Visibility="Visible" Click="Btn_SetMarkerPhoto_Click"/>
+            <Button x:Name="Btn_DeleteMarkerPhoto" Content="Delete Photo" HorizontalAlignment="Right" Margin="0,0,20,10" VerticalAlignment="Bottom" Width="100" Visibility="Visible" Click="Btn_DeleteMarkerPhoto_Click"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="2">
+            <Label Content="Misc Photo" HorizontalAlignment="Left" Margin="75,0,0,5" VerticalAlignment="Bottom" FontWeight="Bold"/>
+            <Image x:Name="Img_MiscPhoto" HorizontalAlignment="Stretch" Margin="10,5,10,50" VerticalAlignment="Stretch" MouseLeftButtonDown="Img_MiscPhoto_MouseLeftButtonDown"/>
+            <Button x:Name="Btn_SetMiscPhoto" Content="Set Photo" HorizontalAlignment="Right" Margin="0,0,135,10" VerticalAlignment="Bottom" Width="100" Visibility="Visible" Click="Btn_SetMiscPhoto_Click"/>
+            <Button x:Name="Btn_DeleteMiscPhoto" Content="Delete Photo" HorizontalAlignment="Right" Margin="0,0,20,10" VerticalAlignment="Bottom" Width="100" Visibility="Visible" Click="Btn_DeleteMiscPhoto_Click"/>
+        </Grid>
+
     </Grid>
 </UserControl>
+
+    
+    

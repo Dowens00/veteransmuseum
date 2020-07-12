@@ -14,8 +14,9 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Column="0" Grid.Row="0">
+        <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
         <Button x:Name="Btn_SearchAgain" Content="Search Again" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Width="110" Click="Btn_SearchAgain_Click"/>
             <Button x:Name="Btn_AddComments" Content="Submit Corrections / Updates" Width="220" HorizontalAlignment="Right" Margin="0,10,15,0" VerticalAlignment="Top" Click="Btn_AddComments_Click"/>
         <Label x:Name="Lbl_Name" Content="{Binding Path=Veteran.Name, UpdateSourceTrigger=PropertyChanged}" Height="30" HorizontalAlignment="Stretch" Margin="15,40,10,0" VerticalAlignment="Top"/>
@@ -49,30 +50,29 @@
         <Label x:Name="Lbl_MarkerLocation" Content="{Binding Path=Veteran.MarkerLocation, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Margin="120,795,0,0" VerticalAlignment="Top"/>
         <Button x:Name="Btn_CemeteryInfo" Content="Cemetery Information" HorizontalAlignment="Center" Margin="0,840,0,0" VerticalAlignment="Top" Width="175" Click="Btn_CemeteryInfo_Click"/>
         </Grid>
-        <Grid Grid.Column="1" Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Label Content="Click Photos To Enlarge" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" FontWeight="Bold"/>
+
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Label Content="Click Photos To Enlarge" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="0" FontWeight="Bold"/>
             <Label Content="Service Photo" HorizontalAlignment="Center" Margin="0,0,0,5" VerticalAlignment="Bottom" Grid.Row="1" FontWeight="Bold"/>
             <Image x:Name="Img_ServicePhoto" HorizontalAlignment="Stretch" Margin="10,0,10,35" VerticalAlignment="Stretch" Grid.Row="1" MouseLeftButtonDown="Img_ServicePhoto_MouseLeftButtonDown"/>
-            <Label Content="Casual Photo" HorizontalAlignment="Center" Margin="0,0,0,5" VerticalAlignment="Bottom" Grid.Row="2" FontWeight="Bold"/>
-            <Image x:Name="Img_CasualPhoto" HorizontalAlignment="Stretch" Margin="10,5,10,35" VerticalAlignment="Stretch" Grid.Row="2" MouseLeftButtonDown="Img_MiscPhoto_MouseLeftButtonDown"/>
         </Grid>
-        <Grid Grid.Column="2" Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="2">
             <Button x:Name="Btn_Previous" Content="Previous" HorizontalAlignment="Right" Margin="0,10,100,0" VerticalAlignment="Top" Width="75" Grid.Row="0" Visibility="Hidden" Click="Btn_Previous_Click"/>
             <Button x:Name="Btn_Next" Content="Next" HorizontalAlignment="Right" Margin="0,10,15,0" VerticalAlignment="Top" Width="75" Grid.Row="0" Visibility="Hidden" Click="Btn_Next_Click"/>
-            <Label Content="Marker Photo" HorizontalAlignment="Center" Margin="0,0,0,5" VerticalAlignment="Bottom" Grid.Row="1" FontWeight="Bold"/>
+            <Label Content="Casual Photo" HorizontalAlignment="Center" Margin="0,0,0,5" VerticalAlignment="Bottom" FontWeight="Bold"/>
+            <Image x:Name="Img_CasualPhoto" HorizontalAlignment="Stretch" Margin="10,5,10,35" VerticalAlignment="Stretch" MouseLeftButtonDown="Img_MiscPhoto_MouseLeftButtonDown"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Label Content="Misc Photo" HorizontalAlignment="Center" Margin="0,0,0,5" VerticalAlignment="Bottom" Grid.Row="1" FontWeight="Bold"/>
             <Image x:Name="Img_MarkerPhoto" HorizontalAlignment="Stretch" Margin="10,0,10,35" VerticalAlignment="Stretch" Grid.Row="1" MouseLeftButtonDown="Img_MarkerPhoto_MouseLeftButtonDown"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="2">
             <Label Content="Misc Photo" HorizontalAlignment="Center" Margin="0,0,0,5" VerticalAlignment="Bottom" Grid.Row="2" FontWeight="Bold"/>
             <Image x:Name="Img_MiscPhoto" HorizontalAlignment="Stretch" Margin="10,5,10,35" VerticalAlignment="Stretch" Grid.Row="2" MouseLeftButtonDown="Img_MiscPhoto_MouseLeftButtonDown_1"/>
         </Grid>
+
     </Grid>
 </Window>

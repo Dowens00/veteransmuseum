@@ -29,7 +29,7 @@ namespace Musuem_Viewer
         public string CemSection { get; set; }
         public string CemRow { get; set; }
         public string MarkerLocation { get; set; }
-        public string MarkerPicLoc { get; set; }
+        public string MarkerPicLoc { get; set; } //Misc Pic V2
         public string MilPicLoc { get; set; }
         public string CasualPicLoc { get; set; }
         public string MiscPicLoc { get; set; }

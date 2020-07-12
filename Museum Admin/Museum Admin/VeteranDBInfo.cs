@@ -31,7 +31,7 @@ namespace Museum_Admin
         private string cemSection;
         private string cemRow;
         private string markerLocation;
-        private string markerPicLoc;
+        private string markerPicLoc; // MISC Pic V2
         private string milPicLoc;
         private string casualPicLoc;
         private string miscPicLoc;

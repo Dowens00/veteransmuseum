@@ -151,7 +151,7 @@ namespace Museum_Admin
         private void LoadMarkerPic()
         {
             markerPicFile = ConfigurationManager.AppSettings["InstallDirectory"];
-            markerPicFile += ConfigurationManager.AppSettings["MarkerPicDirectory"];
+            markerPicFile += ConfigurationManager.AppSettings["MiscPicDirectory"];
             markerPicFile += Veteran.MarkerPicLoc;
             try
             {

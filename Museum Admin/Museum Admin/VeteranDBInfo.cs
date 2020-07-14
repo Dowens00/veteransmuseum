@@ -168,7 +168,7 @@ namespace Museum_Admin
                     }
                     else
                     {
-                        MessageBox.Show("Input limit exceeded 10 characters " + dob);
+                        MessageBox.Show("Input limit (MAX 10 Characters)");
                         dob = null;
                     }
                     Tools.hasDataChanged = true;
@@ -201,7 +201,7 @@ namespace Museum_Admin
                 }
                 else
                 {
-                    MessageBox.Show("Input limit exceeded 10 characters " + dod);
+                    MessageBox.Show("Input limit (MAX 10 Characters)");
                     dod = null;
                 }
                 Tools.hasDataChanged = true;

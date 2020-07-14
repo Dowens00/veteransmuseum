@@ -168,7 +168,7 @@ namespace Museum_Admin
                     }
                     else
                     {
-                        MessageBox.Show("Incorrect Format " + dob);
+                        MessageBox.Show("Input limit exceeded 10 characters " + dob);
                         dob = null;
                     }
                     Tools.hasDataChanged = true;
@@ -201,7 +201,7 @@ namespace Museum_Admin
                 }
                 else
                 {
-                    MessageBox.Show("Incorrect Format" + dod);
+                    MessageBox.Show("Input limit exceeded 10 characters " + dod);
                     dod = null;
                 }
                 Tools.hasDataChanged = true;

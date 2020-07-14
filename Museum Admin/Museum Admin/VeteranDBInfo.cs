@@ -168,7 +168,7 @@ namespace Museum_Admin
                     }
                     else
                     {
-                        MessageBox.Show("Incorrect Format" + dob);
+                        MessageBox.Show("Incorrect Format " + dob);
                         dob = null;
                     }
                     Tools.hasDataChanged = true;
